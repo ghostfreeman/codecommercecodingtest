@@ -1,0 +1,65 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "0192499d943798eeef547eb187c21847",
+    "packages": [
+        {
+            "name": "aldemeery/enum-polyfill",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aldemeery/enum-polyfill.git",
+                "reference": "631edfeb0239963a931819dbac3604208ad5ebc6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aldemeery/enum-polyfill/zipball/631edfeb0239963a931819dbac3604208ad5ebc6",
+                "reference": "631edfeb0239963a931819dbac3604208ad5ebc6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "snippet",
+            "autoload": {
+                "files": [
+                    "SplEnum.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Osama Aldemeery",
+                    "email": "aldemeery@gmail.com"
+                }
+            ],
+            "description": "A Polyfill for the SplEnum type in PHP",
+            "keywords": [
+                "SplType",
+                "enum",
+                "enumeration",
+                "splenum"
+            ],
+            "support": {
+                "issues": "https://github.com/aldemeery/enum-polyfill/issues",
+                "source": "https://github.com/aldemeery/enum-polyfill/tree/v1.0.1"
+            },
+            "time": "2020-12-23T01:51:23+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

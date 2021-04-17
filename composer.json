@@ -1,0 +1,5 @@
+{
+    "require": {
+        "aldemeery/enum-polyfill": "^1.0"
+    }
+}
