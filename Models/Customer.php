@@ -1,11 +1,7 @@
 <?php
 
-namespace MovieStore\Models;
-
-use MovieStore\Enums\MovieType;
-use MovieStore\BusinessLogic\Billing;
-use MovieStore\BusinessLogic\FrequentRenterPoints;
-use MovieStore\Models\Rental;
+//namespace MovieStore\Models;
+namespace Models;
 
 class Customer
 {
@@ -46,7 +42,7 @@ class Customer
     /**
      * @param Rental $rental
      */
-    public function addRental(Rental $rental)
+    public function addRental(\Models\Rental $rental)
     {
         $this->rentals[] = $rental;
     }
@@ -61,8 +57,8 @@ class Customer
         foreach($this->rentals as $rental) {
             $amount = 0;
 
-            $Billing = new Billing();
-            $Points = new FrequentRenterPoints();
+            $Billing = new \BusinessLogic\Billing();
+            $Points = new \BusinessLogic\FrequentRenterPoints();
             $this->total += $Billing->GenerateMovieRentCost($rental);
             $this->points += $Points->GeneratePoints($rental);
         }
@@ -77,7 +73,7 @@ class Customer
 
         foreach ($this->rentals as $rental) {
             $amount = 0;
-            $Billing = new \MovieStore\BusinessLogic\Billing();
+            $Billing = new \BusinessLogic\Billing();
             $amount = $Billing->GenerateMovieRentCost($rental); 
             $result .= "\t" . str_pad($rental->movie()->name(), 30, ' ', STR_PAD_RIGHT) . "\t" . $amount . PHP_EOL; //*/
         }
@@ -105,7 +101,7 @@ class Customer
         $result .= "\t<ul>" . PHP_EOL;
 
         foreach ($this->rentals as $rental) {
-            $RentCostObj = new Billing();
+            $RentCostObj = new \BusinessLogic\Billing();
             $thisAmount = $RentCostObj->GenerateMovieRentCost($rental);
             $result .= "\t\t<li>" . $rental->movie()->name() . " - " . $thisAmount . "</li>\n"; //PHP_EOL;
         }

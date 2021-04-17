@@ -1,5 +1,16 @@
 {
+    "name": "ckilgore/corecommerceproject",
+    "type": "project",
+    "description": "CoreCommerce Project",
+    "license": "Proprietary",
     "require": {
         "aldemeery/enum-polyfill": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Models\\":"Models/",
+            "BusinessLogic\\":"BusinessLogic/",
+            "Enums\\":"Enums/"
+        }
     }
 }

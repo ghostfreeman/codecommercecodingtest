@@ -1,9 +1,7 @@
 <?php
 
-namespace MovieStore\BusinessLogic;
-
-use MovieStore\Enums\MovieType;
-use MovieStore\Models\Rental;
+//namespace MovieStore\BusinessLogic;
+namespace BusinessLogic;
 
 class Billing
 {
@@ -15,19 +13,19 @@ class Billing
      * @param Rental $rental
      * @return void
      */
-    public function GenerateMovieRentCost(Rental $rental) {
+    public function GenerateMovieRentCost(\Models\Rental $rental) {
         $subtotal = 0;
 
         // When new checkout cases must be accounted for, extend the switch/case and
         // define a new static function below
         switch ($rental->movie()->priceCode()) {
-            case MovieType::Regular:
+            case \Enums\MovieType::Regular:
                 $subtotal += $this->CalculateRegularCost($rental->daysRented());
                 break;
-            case MovieType::NewRelease:
+            case \Enums\MovieType::NewRelease:
                 $subtotal += $this->CalculateNewReleaseCost($rental->daysRented());
                 break;
-            case MovieType::Childrens:
+            case \Enums\MovieType::Childrens:
                 $subtotal += $this->CalculateChildrensFilmCost($rental->daysRented());
                 break;
             default:

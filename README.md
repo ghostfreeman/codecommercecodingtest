@@ -1,3 +1,14 @@
+# CoreCommerce Coding Challenge
+
+## Installation (Read Me)
+1. Unpack the zip or code into a directory
+2. run `composer install` in the docroot to install dependencies and the autoloader
+     2a. Install Composer if you don't have it [here](https://getcomposer.org/download/).
+4. Run the application with `php index.php`.
+
+See Rationale.me for development details.
+
+# The original Readme
 ## Introduction
 
 This example comes from the book Refactoring by Martin Fowler. The example is in PHP, but it is designed to be simple enough to understand - regardless of your experience with the language.

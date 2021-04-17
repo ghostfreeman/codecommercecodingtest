@@ -1,8 +1,7 @@
 <?php
 
-namespace MovieStore\BusinessLogic;
-
-use MovieStore\Enums\MovieType;
+//namespace MovieStore\BusinessLogic;
+namespace BusinessLogic;
 
 class FrequentRenterPoints
 {
@@ -35,7 +34,7 @@ class FrequentRenterPoints
      */
     private static function NewReleasePoints($rental)
     {
-        if (($rental->movie()->priceCode() === MovieType::NewRelease) && ($rental->daysRented() > 1)) {
+        if (($rental->movie()->priceCode() === \Enums\MovieType::NewRelease) && ($rental->daysRented() > 1)) {
             return true;
         } else {
             return false;

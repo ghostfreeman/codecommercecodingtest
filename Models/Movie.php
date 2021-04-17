@@ -1,6 +1,7 @@
 <?php
 
-namespace MovieStore\Models;
+//namespace MovieStore\Models;
+namespace Models;
 
 class Movie
 {
