@@ -2,13 +2,15 @@
 
 require_once('vendor/autoload.php');
 require_once("Enums/MovieType.php");
-require_once('Movie.php');
-require_once('Rental.php');
-require_once('Customer.php');
+require_once('Models/Movie.php');
+require_once('Models/Rental.php');
+require_once('Models/Customer.php');
+require_once("BusinessLogic/Billing.php");
+require_once("BusinessLogic/FrequentRenterPoints.php");
 
 use MovieStore\Models\Rental;
 use MovieStore\Models\Movie;
-//use MovieStore\Customer;
+use MovieStore\Models\Customer;
 use MovieStore\Enums\MovieType;
 
 $rental1 = new Rental(
@@ -37,6 +39,8 @@ $customer = new Customer('Joe Schmoe');
 $customer->addRental($rental1);
 $customer->addRental($rental2);
 $customer->addRental($rental3);
+
+$customer->CalculateTotals();
 
 echo $customer->statement();
 echo PHP_EOL;
