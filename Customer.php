@@ -1,7 +1,10 @@
 <?php
 
-namespace MovieStore\Models;
+
 use MovieStore\Enums\MovieType;
+use MovieStore\BusinessLogic\Billing;
+use MovieStore\BusinessLogic\FrequentRenterPoints;
+use MovieStore\Models\Rental;
 
 class Customer
 {
@@ -14,6 +17,13 @@ class Customer
      * @var Rental[]
      */
     private $rentals;
+
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
+    private $points;
 
     /**
      * @param string $name
@@ -41,6 +51,23 @@ class Customer
     }
 
     /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function CalculateTotals()
+    {
+        foreach($this->rentals as $rental) {
+            $amount = 0;
+
+            $RentCost = new Billing();
+            $Points = new FrequentRenterPoints();
+            $this->total += $RentCost->GenerateMovieRentCost($rental);
+            $this->points += $Points->GeneratePoints($rental);
+        }
+    }
+
+    /**
      * @return string
      */
     public function statement()
@@ -51,7 +78,12 @@ class Customer
         $result = 'Rental Record for ' . $this->name() . PHP_EOL;
 
         foreach ($this->rentals as $rental) {
-            $thisAmount = 0;
+            $amount = 0;
+            $Billing = new Billing();
+            $amount = $Billing->GenerateMovieRentCost($rental);
+
+            $result .= "\t" . str_pad($rental->movie()->name(), 30, ' ', STR_PAD_RIGHT) . "\t" . $amount . PHP_EOL;
+            /* $thisAmount = 0;
 
             switch($rental->movie()->priceCode()) {
                 case MovieType::Regular:
@@ -78,7 +110,7 @@ class Customer
                 $frequentRenterPoints++;
             }
 
-            $result .= "\t" . str_pad($rental->movie()->name(), 30, ' ', STR_PAD_RIGHT) . "\t" . $thisAmount . PHP_EOL;
+            $result .= "\t" . str_pad($rental->movie()->name(), 30, ' ', STR_PAD_RIGHT) . "\t" . $thisAmount . PHP_EOL; */
         }
 
         $result .= 'Amount owed is ' . $totalAmount . PHP_EOL;
@@ -86,7 +118,7 @@ class Customer
 
         return $result;
     }
-    
+
     /**
      * Renders the statement as a block of HTML
      *

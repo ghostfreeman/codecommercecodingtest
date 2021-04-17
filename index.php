@@ -8,7 +8,7 @@ require_once('Customer.php');
 
 use MovieStore\Models\Rental;
 use MovieStore\Models\Movie;
-use MovieStore\Models\Customer;
+//use MovieStore\Customer;
 use MovieStore\Enums\MovieType;
 
 $rental1 = new Rental(
