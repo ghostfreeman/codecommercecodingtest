@@ -4,6 +4,7 @@
 require_once('Movie.php');
 require_once('Rental.php');
 require_once('Customer.php');
+require_once('vendor/autoload.php');
 
 $rental1 = new Rental(
     new Movie(
@@ -33,3 +34,5 @@ $customer->addRental($rental2);
 $customer->addRental($rental3);
 
 echo $customer->statement();
+echo PHP_EOL;
+echo $customer->htmlStatement();
