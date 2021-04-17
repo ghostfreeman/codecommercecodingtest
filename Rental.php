@@ -1,5 +1,7 @@
 <?php
 
+namespace MovieStore\Models;
+
 class Rental
 {
     /**

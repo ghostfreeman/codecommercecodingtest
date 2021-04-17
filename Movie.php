@@ -1,5 +1,7 @@
 <?php
 
+namespace MovieStore\Models;
+
 class Movie
 {
     const CHILDRENS = 2;

@@ -1,5 +1,8 @@
 <?php
 
+namespace MovieStore\Models;
+use MovieStore\Enums\MovieType;
+
 class Customer
 {
     /**
@@ -51,16 +54,16 @@ class Customer
             $thisAmount = 0;
 
             switch($rental->movie()->priceCode()) {
-                case Movie::REGULAR:
+                case MovieType::Regular:
                     $thisAmount += 2;
                     if ($rental->daysRented() > 2) {
                         $thisAmount += ($rental->daysRented() - 2) * 1.5;
                     }
                     break;
-                case Movie::NEW_RELEASE:
+                case MovieType::NewRelease:
                     $thisAmount += $rental->daysRented() * 3;
                     break;
-                case Movie::CHILDRENS:
+                case MovieType::Childrens:
                     $thisAmount += 1.5;
                     if ($rental->daysRented() > 3) {
                         $thisAmount += ($rental->daysRented() - 3) * 1.5;
