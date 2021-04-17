@@ -1,6 +1,5 @@
 <?php
 
-//namespace MovieStore\Models;
 namespace Models;
 
 class Movie

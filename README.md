@@ -6,7 +6,7 @@
      2a. Install Composer if you don't have it [here](https://getcomposer.org/download/).
 4. Run the application with `php index.php`.
 
-See Rationale.me for development details.
+See Rationale.md for development details.
 
 # The original Readme
 ## Introduction

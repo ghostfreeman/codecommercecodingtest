@@ -1,6 +1,5 @@
 <?php
 
-//namespace MovieStore\Enums;
 namespace Enums;
 
 class MovieType extends \SplEnum

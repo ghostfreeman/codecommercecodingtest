@@ -1,6 +1,5 @@
 <?php
 
-//namespace MovieStore\BusinessLogic;
 namespace BusinessLogic;
 
 class FrequentRenterPoints
