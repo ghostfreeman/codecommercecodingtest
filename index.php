@@ -23,11 +23,27 @@ $rental3 = new \Models\Rental(
     ), 5
 );
 
+$rental4 = new \Models\Rental(
+    new \Models\Movie(
+        'RoboCop',
+        \Enums\MovieType::Scifi
+    ), 2
+);
+
+$rental5 = new \Models\Rental(
+    new \Models\Movie(
+        'Seven Samurai',
+        \Enums\MovieType::Foreign
+    ), 2
+);
+
 $customer = new \Models\Customer('Joe Schmoe');
 
 $customer->addRental($rental1);
 $customer->addRental($rental2);
 $customer->addRental($rental3);
+$customer->addRental($rental4);
+$customer->addRental($rental5);
 
 $customer->CalculateTotals();
 

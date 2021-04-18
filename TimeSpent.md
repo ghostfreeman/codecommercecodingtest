@@ -5,6 +5,10 @@
 * 5 min on scaffolding
 Total: 30 min
 
-# 4/17/202
+# 4/17/2021
 * 58 mins on class cleanup and consolidation, finishing touches on refined application behavior
-Total: 58 min
+* 29 mins on moving to Composer autoload, and cleanup
+* 4 mins on documenting classes
+* 4 mins finishing documentation
+
+Total: 95 min

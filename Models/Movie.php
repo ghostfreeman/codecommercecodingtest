@@ -4,21 +4,23 @@ namespace Models;
 
 class Movie
 {
-    const CHILDRENS = 2;
-    const REGULAR = 0;
-    const NEW_RELEASE = 1;
-
     /**
+     * Name of the Movie.
+     * 
      * @var string
      */
     private $name;
 
     /**
+     * The Price code for the Movie. This must be a Enum from the MovieType enum.
+     * 
      * @var int
      */
     private $priceCode;
 
     /**
+     * Constructor
+     * 
      * @param string $name
      * @param int $priceCode
      */
@@ -29,6 +31,8 @@ class Movie
     }
 
     /**
+     * Returns the Movie Name.
+     * 
      * @return string
      */
     public function name()
@@ -37,6 +41,8 @@ class Movie
     }
 
     /**
+     * Returns the Movie Price Code
+     * 
      * @return int
      */
     public function priceCode()

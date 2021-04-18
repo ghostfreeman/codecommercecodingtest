@@ -27,6 +27,9 @@ class Billing
             case \Enums\MovieType::Childrens:
                 $subtotal += $this->CalculateChildrensFilmCost($rental->daysRented());
                 break;
+            case \Enums\MovieType::Scifi:
+            case \Enums\MovieType::Foreign:
+                $subtotal += $this->CalcualteScifiForeignFilmCost($rental->daysRented());
             default:
                 break;
         }
@@ -77,5 +80,10 @@ class Billing
         }
 
         return $thisAmount;
+    }
+
+    private static function CalcualteScifiForeignFilmCost($days)
+    {
+        return $days * 4;
     }
 }

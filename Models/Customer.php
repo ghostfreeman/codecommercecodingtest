@@ -5,23 +5,29 @@ namespace Models;
 class Customer
 {
     /**
+     * Customer Name
+     * 
      * @var string
      */
     private $name;
 
     /**
-     * @var Rental[]
+     * An array representing movie rentals for the customer.
+     * 
+     * @var array[]
      */
     private $rentals;
 
     /**
-     * Undocumented variable
+     * An integer value representing Frequent Renter Points.
      *
-     * @var [type]
+     * @var integer
      */
     private $points;
 
     /**
+     * Constructor for Customer. All instances of Customer must have a name assigned (String).
+     * 
      * @param string $name
      */
     public function __construct($name)
@@ -31,6 +37,8 @@ class Customer
     }
 
     /**
+     * Returns the Customer Name.
+     * 
      * @return string
      */
     public function name()
@@ -39,7 +47,9 @@ class Customer
     }
 
     /**
-     * @param Rental $rental
+     * Adds a rental to the Customer.
+     * 
+     * @param \Models\Rental $rental
      */
     public function addRental(\Models\Rental $rental)
     {
@@ -47,7 +57,8 @@ class Customer
     }
 
     /**
-     * Undocumented function
+     * Processes the costs of movie rentals based on behaviors defined in Billing, and assigns points based on
+     * behaviors in FrequentRentalPoints
      *
      * @return void
      */
@@ -64,6 +75,8 @@ class Customer
     }
 
     /**
+     * Processes the Customer's data and returns a text summary of the billing statement.
+     * 
      * @return string
      */
     public function statement()
@@ -84,8 +97,11 @@ class Customer
     }
 
     /**
-     * Renders the statement as a block of HTML
+     * Processes the Customer's data and returns an HTML summary of the billing statement. By passsing
+     * true, the HTML summary will be written to a file in the docroot named after the Customer, with an
+     * HTML5 doctype. This is set to false by default.
      *
+     * @param $renderAsDocument boolean
      * @return void
      */
     public function htmlStatement($renderAsDocument = false)
