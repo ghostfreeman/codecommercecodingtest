@@ -18,7 +18,7 @@ class FrequentRenterPoints
 
         // Below, you can add additional internal methods against
         // The rentals to adjust the number of points assigned.
-        if ($this->NewReleasePoints($rental)) {
+        if ($this->NewReleasePoints($rental) || $this->ForeignFilmPoints($rental) ) {
             $points++;
         }
 
@@ -34,6 +34,18 @@ class FrequentRenterPoints
     private static function NewReleasePoints($rental)
     {
         if (($rental->movie()->priceCode() === \Enums\MovieType::NewRelease) && ($rental->daysRented() > 1)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Confirms if the rental is eligible for Foreign Films points additions
+     */
+    private static function ForeignFilmPoints($rental)
+    {
+        if (($rental->movie()->priceCode() === \Enums\MovieType::Foreign) && ($rental->daysRented() > 1)) {
             return true;
         } else {
             return false;

@@ -10,5 +10,6 @@ Total: 30 min
 * 29 mins on moving to Composer autoload, and cleanup
 * 4 mins on documenting classes
 * 4 mins finishing documentation
+* 8 mins on testing
 
-Total: 95 min
+Total: 103 min
